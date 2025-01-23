@@ -1,12 +1,12 @@
-# PID Powered Sinusoidal Velocity Controller 
+# PID Controlled Sinusoidal Velocity Regulation 
 
 ## Objetives
-- Practice **P**roportional **I**ntegral **D**erivative control policy. Regulate a wheel's linear velocity and follow
-- Collect data .
+- Practice **P**roportional **I**ntegral **D**erivative control policy. Regulate a wheel's linear velocity to follow a sinusoidal waving reference velocity
+- Collect wheel's motion data.
 - Evaluate controller performance.
 
 ## Requirements
-Run provided testing script, tune your PID parameters and record the motor velocity data.
+Run provided testing script, tune your PID parameters and record the wheel's velocity data.
 
 ### 1. (70%) Collect Motor Velocity Data
 Complete [plot_scan.py](plot_scan.py) to achieve following requests.
