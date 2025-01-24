@@ -1,7 +1,7 @@
 # PID Controlled Sinusoidal Velocity Regulation 
 
 ## Objetives
-- Practice **P**roportional **I**ntegral **D**erivative control policy. Regulate a wheel's linear velocity to follow a sinusoidal waving reference velocity
+- Practice **P**roportional **I**ntegral **D**erivative control policy to regulate a motor's velocity.
 - Collect wheel's motion data.
 - Evaluate controller performance.
 
