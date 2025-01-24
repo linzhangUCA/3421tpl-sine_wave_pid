@@ -1,14 +1,18 @@
+"""
+Run this script on Pico w/ Micropython
+"""
 from wheel_driver import WheelDriver
 from time import sleep
 from math import sin, pi
 
+### START CODING HERE ###
+K_P = 100000
+K_I = 0
+K_D = 0
+### END CODING HERE ###
 # SETUP
 # Instantiate wheel
 w = WheelDriver((6, 7, 8), (10, 11))  # another option is: WheelDriver((2, 3, 4), (20, 21)) 
-# Constants
-K_P = 20000
-K_I = 60000
-K_D = 20000
 ref_vels = [0] * 20
 for i in range(20):
     ref_vels[i] = 0.9 * sin((i + 1) * pi / 10) 
@@ -48,6 +52,7 @@ for i in range(400):  # 20Hz controller, 20 seconds
     sleep(0.05)
 
 w.stop()
+### UNCOMMENT FOLLOWING 3 LINES WHEN SATISFIED WITH PID GAINS ###
 # with open(f'data{target_vel}.csv', 'w') as file:
 #     for item in data:
 #         file.write(f'{item[0]},{item[1]}\n')
