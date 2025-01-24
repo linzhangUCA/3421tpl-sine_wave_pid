@@ -17,7 +17,7 @@ Finish the provided python scripts to achieve the following goals.
 ### 1. (60%) Collect PID Control Data
 Complete [pid_sine_test.py](pid_sine_test.py) to achieve following requests.
 1. (50%) Tune PID gains. Find the best combination of the 3 gains.
-2. (10%) Store the data from the best performed model by uncommenting the last 3 lines in [pid_sine_test.py](pid_sine_test.py).
+2. (10%) Upload the data from the best performed controller by uncommenting the last 3 lines in [pid_sine_test.py](pid_sine_test.py).
 
 #### Hints
 - [Matplotlib](https://matplotlib.org/) installation
@@ -26,8 +26,8 @@ Complete [pid_sine_test.py](pid_sine_test.py) to achieve following requests.
 pip install matplotlib --break-system-packages
 ```
 
-### 2. (40%) Controller Performance Evaluation 
-Please run 
+### 2. (40%) Mean Squared Error Evaluation 
+
 
 ## AI Policies
 Please acknowledge AI's contributions follow the policies in the syllabus.
