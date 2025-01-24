@@ -1,3 +1,6 @@
+"""
+Run this script on a local machine (with local Python), such as Raspberry Pi.
+"""
 import csv
 import matplotlib.pyplot as plt
 
