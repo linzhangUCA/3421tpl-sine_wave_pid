@@ -1,11 +1,13 @@
 """
 Run this script with local Python.
 """
+import os
 import csv
 import matplotlib.pyplot as plt
 
 # Extract data
-with open('example_data.csv', newline='') as f:
+data_dir = os.path.join(os.path.dirname(sys.path[0]), 'data')
+with open(os.path.join(data_dir, 'example_data.csv'), newline='') as f:
     reader = csv.reader(f)
     data = tuple(reader)
 targ_v = []
@@ -41,4 +43,5 @@ ax[0].grid()
 ax[1].plot(ts, err, 'r')
 ax[1].set_ylim([-0.5, 0.5])
 plt.grid()
+# plt.savefig('pid_eval.png'))
 plt.show()
