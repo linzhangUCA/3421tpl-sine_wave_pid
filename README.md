@@ -31,15 +31,17 @@ Mean squared error (MSE) is a metric used to measure the average squared differe
 We can employ such a metric to measure the difference between the wheel's target velocity and actual velocity.
 And such a metric can serve as an indicator of the PID controller's performance.
 
-During the data collection process, $T$ measurements are taken to probe/sample the wheel's actual velocity.
-Each measurement is taken at a certian moment $t_i$, where $i \in {0, 1, 2, \dots, T}$.
-Let velocity of the wheel at moment $t_i$ be $v_i$ and the actual velocity at the same moment to be $\hat{v}_i$.
+- During the data collection process, $T$ measurements are taken to probe/sample the wheel's actual velocity.
+- Each measurement is taken at a certain moment $t_i$, where $i \in {0, 1, 2, \dots, T}$.
+- Let velocity of the wheel at moment $t_i$ be $v_i$ and the actual velocity at the same moment to be $\hat{v}_i$.
+
 The MSE between the target and the actual wheel velocity in this control process can be written as,
 
 $$e_{MSE} = \frac{1}{T} \sum_{i=0}^T (v_i - \hat{v}_i)^2$$
 
-1. (30%) Complete the code in [evaluation.py](evaluation.py) to compute the MSE using the data collected in the first section. You'll need to figure out the correct values for $T$, $v_i$, and $\hat{v}_i$
-2. (10%) Uncomment the last 2 lines in [evaluation.py](evaluation.py) to plot the velocity comparison graph. Upload the figure to this repository.
+1. (10%) Complete the code in [evaluation.py](evaluation.py) to visualize your data. Uncomment last line to plot the velocity comparison graph. Upload the figure to this repository.
+2. (20%) Complete the code in [evaluation.py](evaluation.py) to compute the MSE using the data collected in the first section. You'll need to figure out the correct values for $T$, $v_i$, and $\hat{v}_i$
+3. (10%) Your MSE is below **0.003**
 
 ## AI Policies
 Please acknowledge AI's contributions follow the policies in the syllabus.
