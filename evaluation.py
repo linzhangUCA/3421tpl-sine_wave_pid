@@ -54,4 +54,5 @@ ax[1].set_ylabel("Error (m/s)")
 ax[1].set_ylim([-0.4, 0.4])
 plt.grid()
 plt.show()
+### UNCOMMENT FOLLOWING LINE WHEN SATISFIED WITH PID GAINS AND MSE VALUE ###
 # plt.savefig('pid_eval.png'))

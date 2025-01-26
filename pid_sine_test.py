@@ -7,9 +7,9 @@ from time import sleep
 from math import sin, pi
 
 ### START CODING HERE ###
-K_P = 100000
-K_I = 0
-K_D = 0
+K_P = None
+K_I = None
+K_D = None
 ### END CODING HERE ###
 # SETUP
 # Instantiate wheel
