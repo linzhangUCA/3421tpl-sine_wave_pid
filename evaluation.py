@@ -1,5 +1,5 @@
 """
-Run this script on a local machine (with local Python), such as Raspberry Pi.
+Run this script with local Python.
 """
 import csv
 import matplotlib.pyplot as plt
