@@ -31,6 +31,7 @@ data = []
 for i in range(400):  # 20Hz controller, 20 seconds
     if not (i + 1) % 20:
         target_vel = ref_vels[int((i + 1) / 20) - 1]
+        err_sum, err_diff, prev_err = 0.0, 0.0, 0.0
     actual_vel = w.lin_vel
     #     print(actual_vel)
     err = target_vel - actual_vel
