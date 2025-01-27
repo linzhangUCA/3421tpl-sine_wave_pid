@@ -57,6 +57,6 @@ for i in range(400):  # 20Hz controller, 20 seconds
 
 w.stop()
 ### UNCOMMENT FOLLOWING 3 LINES WHEN SATISFIED WITH PID GAINS ###
-# with open(f'data{target_vel}.csv', 'w') as file:
+# with open(f'data-{K_P}_{K_I}_{K_D}.csv', 'w') as file:
 #     for item in data:
 #         file.write(f'{item[0]},{item[1]}\n')
