@@ -39,16 +39,26 @@ Complete the code in [evaluation.py](evaluation.py) for the following requests.
 2. (40%) Compute the MSE using the data collected in the first section. You'll need to figure out the correct values for $T$, $v_i$, and $\hat{v}_i$
 3. (10%) Your MSE is below **0.003**
 
-#### Install Matplotlib
+## Hints
+
+### Understand Mean Squared Error
+
+- [Article](https://www.geeksforgeeks.org/mean-squared-error/)
+- [Video](https://youtu.be/beIgcdf0YDE?si=HzSU4BpFaquhJd5t)
+
+### PID Tuning Guide
+
+- [Video](https://youtu.be/IB1Ir4oCP5k?si=6ZXxxpqZwZsXWKwD)
+
+### Motor Driver Scripts
+
+- [https://github.com/linzhangUCA/homer/tree/main/homer_control/pico_scripts](https://github.com/linzhangUCA/homer/tree/main/homer_control/pico_scripts)
+
+### Install Matplotlib
 
 ```console
 # Run following line in terminal
 pip install matplotlib --break-system-packages
 ```
-
-#### Understand Mean Squared Error
-- [Article](https://www.geeksforgeeks.org/mean-squared-error/)
-- [Video](https://youtu.be/beIgcdf0YDE?si=HzSU4BpFaquhJd5t)
-
 ## AI Policies
 Please acknowledge AI's contributions follow the policies in the syllabus.
