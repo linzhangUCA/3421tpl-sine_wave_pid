@@ -41,14 +41,14 @@ Complete the code in [evaluation.py](evaluation.py) for the following requests.
 
 ## Hints
 
+### PID Tuning Guide
+
+- [Video](https://youtu.be/IB1Ir4oCP5k?si=6ZXxxpqZwZsXWKwD)
+
 ### Understand Mean Squared Error
 
 - [Article](https://www.geeksforgeeks.org/mean-squared-error/)
 - [Video](https://youtu.be/beIgcdf0YDE?si=HzSU4BpFaquhJd5t)
-
-### PID Tuning Guide
-
-- [Video](https://youtu.be/IB1Ir4oCP5k?si=6ZXxxpqZwZsXWKwD)
 
 ### Motor Driver Scripts
 
@@ -60,5 +60,6 @@ Complete the code in [evaluation.py](evaluation.py) for the following requests.
 # Run following line in terminal
 pip install matplotlib --break-system-packages
 ```
+
 ## AI Policies
 Please acknowledge AI's contributions follow the policies in the syllabus.
