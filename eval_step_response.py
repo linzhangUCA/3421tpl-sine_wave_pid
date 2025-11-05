@@ -19,18 +19,19 @@ pid_controller.k_i = K_I
 pid_controller.k_d = K_D
 STBY = Pin(12, Pin.OUT)
 STBY.on()
-meas_vels = []
+vel_data = []
 
 
 # LOOP
 for i in range(100):
     if i == 24:  # step up @ t=0.5 s
-        pid_controller.set_wheel_velocity(ref_vel)
+        pid_controller.set_wheel_velocity(REF_VEL)
     elif i == 74:  # step down @ t=1.5 s
         pid_controller.set_wheel_velocity(0.0)
     print(
         f"Reference velocity={pid_controller.ref_lin_vel} m/s, Measured velocity={pid_controller.meas_lin_vel} m/s"
     )
+    vel_data.append((pid_controller.ref_lin_vel, pid_controller.meas_lin_vel))
     sleep(0.02)
 # Terminate
 pid_controller.set_wheel_velocity(0.0)
@@ -38,6 +39,6 @@ sleep(0.5)
 STBY.off()
 
 ### UNCOMMENT FOLLOWING 3 LINES WHEN SATISFIED WITH PID GAINS ###
-# with open(f'ref{REF_VEL}-{K_P}_{K_I}_{K_D}.csv', 'w') as file:
-#     for item in data:
-#         file.write(f'{item[0]},{item[1]}\n')
+with open(f'ref_{REF_VEL}-pid_{K_P}_{K_I}_{K_D}.csv', 'w') as file:
+    for item in vel_data:
+        file.write(f'{item[0]},{item[1]}\n')
