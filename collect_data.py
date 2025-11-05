@@ -23,22 +23,22 @@ vel_data = []
 
 
 # LOOP
-for i in range(100):
-    if i == 24:  # step up @ t=0.5 s
+for i in range(200):
+    if i == 49:  # step up @ t=0.5 s
         pid_controller.set_wheel_velocity(REF_VEL)
-    elif i == 74:  # step down @ t=1.5 s
+    elif i == 149:  # step down @ t=1.5 s
         pid_controller.set_wheel_velocity(0.0)
     print(
         f"Reference velocity={pid_controller.ref_lin_vel} m/s, Measured velocity={pid_controller.meas_lin_vel} m/s"
     )
     vel_data.append((pid_controller.ref_lin_vel, pid_controller.meas_lin_vel))
-    sleep(0.02)
+    sleep(0.01)
 # Terminate
 pid_controller.set_wheel_velocity(0.0)
 sleep(0.5)
 STBY.off()
 
 ### UNCOMMENT FOLLOWING 3 LINES WHEN SATISFIED WITH PID GAINS ###
-with open(f'ref_{REF_VEL}-pid_{K_P}_{K_I}_{K_D}.csv', 'w') as file:
+with open(f'ref_{REF_VEL:.1f}-pid_{K_P:.2f}_{K_I:.2f}_{K_D:.2f}.csv', 'w') as file:
     for item in vel_data:
         file.write(f'{item[0]},{item[1]}\n')
