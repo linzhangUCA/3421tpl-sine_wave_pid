@@ -6,11 +6,13 @@ import csv
 import matplotlib.pyplot as plt
 from pathlib import Path
 
-# Extract data
-### START CODING HERE ### ~ 1 line
+# ======================= #
+# --- 0. Prepare Data --- #
+# ======================= #
+### CHANGE FILE NAME BELOW ###
 filename = "ref_0.4-pid_1.20_0.00_1.50.csv"  # data file name
-### END CODING HERE ###
-data_path = Path(__file__).parent / filename
+
+data_path = Path(__file__).parent / "data" / filename
 with open(data_path, newline="") as f:
     reader = csv.reader(f)
     data = tuple(reader)
@@ -63,7 +65,7 @@ stabv = meas_vels[149:119:-1]  # consider last 30% as steady state
 steady_mean = sum(stabv) / len(stabv)
 steady_var = (sum((x - steady_mean) ** 2 for x in stabv) / len(stabv)) ** 0.5
 print(
-    f"Stead state average: {steady_mean:.4f} m/s, standard deviation: {steady_var:.4f} m/s"
+    f"Steady state average: {steady_mean:.4f} m/s, standard deviation: {steady_var:.4f} m/s"
 )
 
 # Visualize data
