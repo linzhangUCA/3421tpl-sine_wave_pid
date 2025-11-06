@@ -22,9 +22,9 @@ for item in data:
     meas_vels.append(float(item[1]))
     errors.append(float(item[0]) - float(item[1]))
 
-# ===============================================#
-# Evaluate rise time                             #
-# ===============================================#
+# ============================== #
+# --- 1. Calculate Rise Time --- #
+# ============================== #
 refv = max(ref_vels)
 refv_10p = refv * 0.1
 refv_90p = refv * 0.9
@@ -45,6 +45,18 @@ if t_10 and t_90:
 else:
     print("Rise Time (10%-90%): N/A (Did not reach 90% of set point)")
 
+# ========================================= #
+# --- 2. Calculate Overshoot Percentage --- #
+# ========================================= #
+maxv = max(meas_vels)
+overshoot = maxv - refv
+if overshoot > 0 and refv:
+    overshoot_percent = (overshoot / refv) * 100
+else:
+    overshoot_percent = 0.0
+
+print(f"Max Velocity: {maxv:.4f} m/s")
+print(f"Overshoot: {overshoot_percent:.2f}%")
 
 # Visualize data
 plt.plot(
