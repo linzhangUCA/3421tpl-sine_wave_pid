@@ -17,33 +17,32 @@ with open(data_path, newline="") as f:
 ref_vels = []
 meas_vels = []
 errors = []
-for item in data:
-    ref_vels.append(float(item[0]))
-    meas_vels.append(float(item[1]))
-    errors.append(float(item[0]) - float(item[1]))
+ts = []
+for ind, val in enumerate(data):
+    ref_vels.append(float(val[0]))
+    meas_vels.append(float(val[1]))
+    errors.append(float(val[0]) - float(val[1]))
+    ts.append(ind * 0.01)
 
 # ============================== #
 # --- 1. Calculate Rise Time --- #
 # ============================== #
-refv = max(ref_vels)
-refv_10p = refv * 0.1
-refv_90p = refv * 0.9
+refv = ref_vels[99]  # ref=0 in [0:50] and [149:200]
 t_10 = None
 t_90 = None
 for i, mv in enumerate(meas_vels):
     if t_10 is None and mv >= refv * 0.1:
-        t_10 = i * 0.01
+        t_10 = ts[i]
     if t_90 is None and mv >= refv * 0.9:
-        t_90 = i * 0.01
+        t_90 = ts[i]
     if t_10 and t_90:
-        # print(f"10% tick: {t_10}, 90% tick: {t_90}")
         break
 rise_time = "N/A"
 if t_10 and t_90:
     rise_time = t_90 - t_10
-    print(f"Rise Time (10%-90%): {rise_time:.2f} s")
+    print(f"Rise time (10%-90%): {rise_time:.2f} s")
 else:
-    print("Rise Time (10%-90%): N/A (Did not reach 90% of set point)")
+    print("Rise time (10%-90%): N/A (Did not reach 90% of reference)")
 
 # ========================================= #
 # --- 2. Calculate Overshoot Percentage --- #
@@ -55,15 +54,26 @@ if overshoot > 0 and refv:
 else:
     overshoot_percent = 0.0
 
-print(f"Max Velocity: {maxv:.4f} m/s")
-print(f"Overshoot: {overshoot_percent:.2f}%")
+print(f"Peak velocity: {maxv:.4f} m/s, overshoot percentage: {overshoot_percent:.2f}%")
+
+# ============================================================= #
+# --- 3. Calculate Steady State Mean and Standard Diviation --- #
+# ============================================================= #
+stabv = meas_vels[149:119:-1]  # consider last 30% as steady state
+steady_mean = sum(stabv) / len(stabv)
+steady_var = (sum((x - steady_mean) ** 2 for x in stabv) / len(stabv)) ** 0.5
+print(
+    f"Stead state average: {steady_mean:.4f} m/s, standard deviation: {steady_var:.4f} m/s"
+)
 
 # Visualize data
 plt.plot(
-    range(len(ref_vels)),
+    ts,
     ref_vels,
-    range(len(ref_vels)),
+    "#7C878E",
+    ts,
     meas_vels,
+    "#582c83",
 )
 plt.legend(["Reference", "Measured"])
 plt.xlabel("Time Stamps (x 0.01 seconds)")
