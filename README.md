@@ -5,58 +5,39 @@ Test varied combinations of these parameters and evaluate each controller's perf
 
 ## Requirements
 
-Complete the provided python scripts.
-Code the sections wrapped by the following comments.
+### 1. Workflow
 
-### 1. (40%) Collect PID Control Data (Pico MicroPython)
+#### 1.1. Use desired
 
-Complete [pid_sine_test.py](pid_sine_test.py) to achieve following goals.
+### 2. (100%) Log Controllers' Evaluation Results
 
-1. (30%) Tune PID gains so that the actual velocity can approach to the target as quickly and closely as possible.
-2. (10%) Store the data from the best performed controller (see next section for criterion) by uncommenting the last 3 lines in [pid_sine_test.py](pid_sine_test.py).
-Upload the saved data to [data](/data/) directory in this repository.
+| **Reference: 0.1 m/s** |  |  |
+| --- | --- | --- |
+|  | **(Baseline)** P=0.50, I=0.00, D=0.00  | **(Improved)** P=?, I=?, D=? |
+| Rise Time (seconds) | ?  | ? |
+| Overshoot (%) | ?  | ? |
+| Steady State Velocity (m/s) | ?  | ? |
 
-### 2. (60%) Mean Squared Error Evaluation (RPi Local Python)
+| **Reference: -0.2 m/s** |  |  |
+| --- | --- | --- |
+|  | **(Baseline)** P=0.50, I=0.00, D=0.00  | **(Improved)** P=?, I=?, D=? |
+| Rise Time (seconds) | ?  | ? |
+| Overshoot (%) | ?  | ? |
+| Steady State Velocity (m/s) | ?  | ? |
 
-Mean squared error (MSE) is a metric used to measure the average squared difference between two variables.
-We can employ such a metric to measure the difference between the wheel's target velocity and actual velocity.
-And such a metric can serve as an indicator of the PID controller's performance.
+| **Reference: -0.3 m/s** |  |  |
+| --- | --- | --- |
+|  | **(Baseline)** P=0.50, I=0.00, D=0.00  | **(Improved)** P=?, I=?, D=? |
+| Rise Time (seconds) | ?  | ? |
+| Overshoot (%) | ?  | ? |
+| Steady State Velocity (m/s) | ?  | ? |
 
-- During the data collection process, $T$ measurements are taken to probe/sample the wheel's actual velocity.
-- Each measurement is taken at a certain moment $t_i$, where $i \in {0, 1, 2, \dots, T}$.
-- Let velocity of the wheel at moment $t_i$ be $v_i$ and the actual velocity at the same moment to be $\hat{v}_i$.
-
-The MSE between the target and the actual wheel velocity in this control process can be written as,
-
-$$e_{MSE} = \frac{1}{T} \sum_{i=0}^T (v_i - \hat{v}_i)^2$$
-
-Complete the code in [evaluation.py](evaluation.py) for the following requests.
-
-1. (10%) Visualize target vs. actual velocity data. Uncomment last line to plot the velocity comparison graph. Upload the figure to this repository.
-2. (40%) Compute the MSE using the data collected in the first section. You'll need to figure out the correct values for $T$, $v_i$, and $\hat{v}_i$
-3. (10%) Your MSE is below **0.003**
-
-## Hints
-
-### PID Tuning Guide
-
-- [Video](https://youtu.be/IB1Ir4oCP5k?si=6ZXxxpqZwZsXWKwD)
-
-### Understand Mean Squared Error
-
-- [Article](https://www.geeksforgeeks.org/mean-squared-error/)
-- [Video](https://youtu.be/beIgcdf0YDE?si=HzSU4BpFaquhJd5t)
-
-### Motor Driver Scripts
-
-- [https://github.com/linzhangUCA/homer/tree/main/homer_control/pico_scripts](https://github.com/linzhangUCA/homer/tree/main/homer_control/pico_scripts)
-
-### Install Matplotlib
-
-```console
-# Run following line in terminal
-pip install matplotlib --break-system-packages
-```
+| **Reference: 0.4 m/s** |  |  |
+| --- | --- | --- |
+|  | **(Baseline)** P=0.50, I=0.00, D=0.00  | **(Improved)** P=?, I=?, D=? |
+| Rise Time (seconds) | ?  | ? |
+| Overshoot (%) | ?  | ? |
+| Steady State Velocity (m/s) | ?  | ? |
 
 ## AI Policies
 
