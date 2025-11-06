@@ -1,16 +1,15 @@
 """
-Run this script with local Python (on RPi).
+Run this script with local Python
 """
 
 import csv
 from pathlib import Path
-# import matplotlib.pyplot as plt
 
 # ======================= #
 # --- 0. Prepare Data --- #
 # ======================= #
 ### CHANGE FILE NAME BELOW ###
-filename = "ref_0.4-pid_1.20_0.00_1.50.csv"  # data file name
+filename = "example_data.csv"  # data file name
 
 data_path = Path(__file__).parent / "data" / filename
 with open(data_path, newline="") as f:
@@ -68,7 +67,10 @@ print(
     f"Steady state average: {steady_mean:.4f} m/s, standard deviation: {steady_var:.4f} m/s"
 )
 
-# Visualize data
+# =============================================== #
+# --- 4. Visualization (Uncomment Code Below) --- #
+# =============================================== #
+# import matplotlib.pyplot as plt
 # plt.plot(
 #     ts[24:175],
 #     ref_vels[24:175],
