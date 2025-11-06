@@ -3,11 +3,12 @@ from wheel_controller import WheelController
 from machine import Pin
 
 
-# START TUNING PID GAINS below
-REF_VEL = 0.4
-K_P = 1.2
+### TUNE PID GAINS BELOW ###
+REF_VEL = 0.1
+K_P = 0.5
 K_I = 0.0
-K_D = 1.5
+K_D = 0.0
+### TUNE PID GAINS ABOVE ###
 
 # SETUP
 pid_controller = WheelController(
@@ -39,6 +40,6 @@ sleep(0.5)
 STBY.off()
 
 ### UNCOMMENT FOLLOWING 3 LINES WHEN SATISFIED WITH PID GAINS ###
-with open(f'ref_{REF_VEL:.1f}-pid_{K_P:.2f}_{K_I:.2f}_{K_D:.2f}.csv', 'w') as file:
+with open(f"ref_{REF_VEL:.1f}-pid_{K_P:.2f}_{K_I:.2f}_{K_D:.2f}.csv", "w") as file:
     for item in vel_data:
-        file.write(f'{item[0]},{item[1]}\n')
+        file.write(f"{item[0]},{item[1]}\n")

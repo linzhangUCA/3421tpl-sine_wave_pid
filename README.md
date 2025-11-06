@@ -5,7 +5,9 @@ Test varied combinations of these parameters and evaluate each controller's perf
 
 ## Workflow
 
-### 1. Hardward Setup
+### 1. Hardware Setup
+
+Have one of your robot's motor and its encoder wires connected to appropriate components.
 
 ### 2. Set PID Controller Ready
 
@@ -13,19 +15,18 @@ Test varied combinations of these parameters and evaluate each controller's perf
 [encoded_motor_driver.py](https://github.com/linzhangUCA/3421example-motor_control/blob/main/encoded_motor_driver.py),
 [wheel_controller.py](https://github.com/linzhangUCA/3421example-motor_control/blob/main/wheel_controller.py)
 to Pico board.
-2. Test with
+2. Run [wheel_controller.py](https://github.com/linzhangUCA/3421example-motor_control/blob/main/wheel_controller.py) to verify your hardware setup.
 
 ### 3. Collect Data
 
-1. Change `K_P`, `K_I`, `K_D` values in [collect_data.py](collect_data.py), and run the script.
-2. Uncomment last three lines if controller's performance is satisfied, then run script again.
-3. Download the [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file to the [data](data/) directory.
-4. Remove the `.csv` file from the Pico board.
+1. Change `REF_VEL`, `K_P`, `K_I`, `K_D` values in [collect_data.py](collect_data.py), and run the script with **MicroPython**.
+2. Download the [CSV](https://en.wikipedia.org/wiki/Comma-separated_values) file to the [data](data/) directory on your computer.
+3. Remove the `.csv` file from the Pico board.
 
 > [!TIP]
 >
 > - An example of the saved csv file name: `ref_0.4-pid_0.50_0.00_0.00.csv`
-> - You can save multiple files on the Pico board, but it is highly recommended to clean up the storage regularly.
+> - You can save multiple files on the Pico board, but it is highly recommended to clean up Pico's storage regularly.
 
 ## Requirements
 
