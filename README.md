@@ -1,8 +1,7 @@
-# Evaluate PID Controller
+# Tune a PID Controller
 
-Let's build and tune a PID controller to regulate wheel's velocity.
+Let's build and tune a PID controller to regulate a motorized and encoded wheel's velocity.
 Experiment with different combinations of **P**roportional **I**ntegral **D**erivative gains.
-And find the best PID parameters.
 
 ## Get Started
 
@@ -12,7 +11,7 @@ Have one of your robot's motor and its encoder wired to appropriate components.
 
 > [!TIP]
 >
-> You can refer to the [example](https://github.com/linzhangUCA/3421example-motor_control/blob/main/images/encoder_motor_pico.jpg).
+> You can refer to the [wiring diagram](https://github.com/linzhangUCA/3421example-motor_control/blob/main/images/encoder_motor_pico.jpg).
 
 ### 2. Get PID Controlled Wheel Ready
 
@@ -28,13 +27,14 @@ to your Pico board.
 ### 3. Collect Data
 
 1. Change `REF_VEL`, `K_P`, `K_I`, `K_D` values in [collect_data.py](collect_data.py), and run the script with **MicroPython**.
-2. Observe controller's performance.
+2. You may need to trial-and-error multiple times to find the satisfied `K_P`, `K_I`, `K_D`.
+3. Observe controller's performance.
 If satisfied, download the [csv](https://en.wikipedia.org/wiki/Comma-separated_values) file to [data](data/) directory on your computer/laptop.
-3. Remove the `.csv` file from the Pico board.
+4. Remove the `.csv` file from the Pico board.
 
 > [!IMPORTANT]
 >
-> [collect_data.py](collect_data.py) is only for good for MicroPython running on your Pico.
+> [collect_data.py](collect_data.py) is only for good for **MicroPython(Raspberry Pi Pico)**.
 
 > [!TIP]
 >
@@ -49,10 +49,12 @@ If satisfied, download the [csv](https://en.wikipedia.org/wiki/Comma-separated_v
 
 > [!IMPORTANT]
 >
-> [evaluate.py](evaluate.py) is only for good for Local Python running on your Laptop(computer).
+> [evaluate.py](evaluate.py) is only good for **Local Python 3** running on your computer/laptop.
 
 > [!TIP]
-> Install [matplotlib](https://matplotlib.org/), then uncomment specified sections in code to visualize measured velocity vs reference velocity.
+>
+> - A piece of [example_data.csv](data/example_data.csv) is provided.
+> - Install [matplotlib](https://matplotlib.org/), then uncomment specified sections in code to visualize measured velocity vs reference velocity.
 
 ## Requirements
 
@@ -74,13 +76,13 @@ You can lose up to 32% if the baseline outperformed tuned controller on every me
 
 ### 3. (10%) Write down the best PID parameters you've found. :point_down:
 
+Tuned PID controller parameters: `P=?`, `I=?`, `D=?`.
+
 ### 4. (16%) Upload your data to [data](data/) directory
 
 > [!WARNING]
 >
 > Or, your logs will not be graded.
-
-Tuned PID controller parameters: `P=?`, `I=?`, `D=?`.
 
 | **Reference: 0.1 m/s** | **Baseline** | **Tuned** |
 | :--- | ---: | ---: |
