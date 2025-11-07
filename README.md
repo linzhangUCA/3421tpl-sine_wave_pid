@@ -54,7 +54,7 @@ If satisfied, download the [csv](https://en.wikipedia.org/wiki/Comma-separated_v
 > [!TIP]
 >
 > - A piece of [example_data.csv](data/example_data.csv) is provided.
-> - Install [matplotlib](https://matplotlib.org/), then uncomment specified sections in code to visualize measured velocity vs reference velocity.
+> - Install [matplotlib](https://matplotlib.org/), then uncomment last sections in the code to visualize measured velocity vs. reference velocity.
 
 ## Requirements
 

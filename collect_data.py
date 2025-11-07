@@ -1,3 +1,7 @@
+"""
+Run this script with MicroPython(Raspberry Pi Pico)
+"""
+
 from time import sleep
 from wheel_controller import WheelController
 from machine import Pin
